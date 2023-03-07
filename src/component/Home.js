@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 function Home() {
   const [userName, setUserName] = useState("");
@@ -22,6 +23,7 @@ function Home() {
     console.log(userName);
     console.log(password);
     console.log(confirmPassword);
+    updateToDB(userName, password, confirmPassword);
     if (password === confirmPassword) {
       setUserName("");
       setPassword("");
@@ -29,6 +31,20 @@ function Home() {
     }
   };
 
+  function updateToDB(username, password, confirmpassword) {
+    axios
+      .post("https://login-nx0e.onrender.com/register/register", {
+        username: username,
+        password: password,
+        confirmpassword: confirmPassword,
+      })
+      .then((data) => {
+        alert("uploded to db");
+      })
+      .catch((err) => {
+        console.log("error");
+      });
+  }
   return (
     <>
       <h1>Login In Form</h1>
