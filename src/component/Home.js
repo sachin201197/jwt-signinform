@@ -47,7 +47,7 @@ function Home() {
   }
   return (
     <>
-      <h1>Login In Form</h1>
+      <h1>Register Form</h1>
       <form>
         <ul className="wrapper">
           <li className="form-row">
